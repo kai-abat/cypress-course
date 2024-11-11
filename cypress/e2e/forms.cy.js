@@ -16,5 +16,10 @@ describe("form tests", () => {
     cy.contains(/Invalid email: ryan@coderyan.io!/i).should("exist");
     cy.wait(3000);
     cy.contains(/Invalid email: ryan@coderyan.io!/i).should("not.exist");
+    cy.contains(/fail!/i).should("not.exist");
+    cy.get('[data-test="subscribe-button"]').click();
+    cy.contains(/fail!/i).should("exist");
+    cy.wait(3000);
+    cy.contains(/fail!/i).should("not.exist");
   });
 });
